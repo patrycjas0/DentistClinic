@@ -1,33 +1,33 @@
 package pl.psipko.DentistClinic.domain.repository;
 
-import pl.psipko.DentistClinic.domain.Patient;
-import pl.psipko.DentistClinic.domain.Visit;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import pl.psipko.DentistClinic.domain.Patient;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.time.LocalDate;
 
 public class DBPatientRepoitory implements PatientRepository {
 
     @PersistenceContext
     private EntityManager em;
 
-    @Override
-    @Transactional
-    public void createPatient(String name, String lastname, String email, String password, LocalDate birthDate, int phoneNumber) {
-
-        Patient patient = new Patient(name,lastname,email,password,birthDate,phoneNumber);
-
-        em.persist(patient);
-
-    }
+    @Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     @Transactional
     public void createPatient(Patient patient) {
+
+        String encodedPassword= bCryptPasswordEncoder.encode(patient.getPassword());
+
+        patient= new Patient(patient.getName(),patient.getLastname(),encodedPassword,patient.getUser(),
+                patient.getBirthDate(),patient.getPhoneNumber(),patient.getRole(),patient.isEnabled());
+
         em.persist(patient);
     }
 
 }
+
 

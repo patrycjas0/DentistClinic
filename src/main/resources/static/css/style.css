@@ -109,6 +109,16 @@ ul ol {
 dt {
   font-weight: 700; }
 
+
+ button {
+      background-color: Transparent;
+      background-repeat:no-repeat;
+      border: none;
+      cursor:pointer;
+      overflow: hidden;
+      outline:none;
+  }
+
 dd {
   margin-bottom: .5rem;
   margin-left: 0; }
@@ -382,6 +392,7 @@ mark,
 .initialism {
   font-size: 90%;
   text-transform: uppercase; }
+
 
 .blockquote {
   margin-bottom: 1rem;

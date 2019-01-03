@@ -46,23 +46,7 @@
 	          <li class="nav-item"><a href="blog" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact" class="nav-link">Kontakt</a></li>
 	          <li class="nav-item cta"><a href="contact" class="nav-link" data-toggle="modal" data-target="#modalRequest"><span>Umów się na wizytę</span></a></li>
-            <li class="nav-item cta"><a href="#" id="loginform" class="nav-link" ><span>Zaloguj się</span></a></li>
-				<form th:action="@{/login}" method="post">
-				<div class="login">
-					<div class="arrow-up"></div>
-					<div class="formholder">
-						<div class="randompad">
-							<fieldset>
-								<label name="username">Email</label>
-								<input type="username"/>
-								<label name="password">Hasło</label>
-								<input type="password" />
-								<input type="submit" value="Zaloguj" />
-							</fieldset>
-                        </div>
-                    </div>
-                </div>
-				</form>
+            <li class="nav-item cta"><a href="/lo" id="loginform" class="nav-link" ><span>Zaloguj się</span></a></li>
 	        </ul>
 	      </div>
 	    </div>

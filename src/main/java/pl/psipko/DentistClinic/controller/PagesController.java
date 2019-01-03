@@ -8,10 +8,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PagesController {
 
 
-    @RequestMapping(value = "/")
-    public String index() {
+    @RequestMapping(value = "/registration")
+    public String registration() {
 
-        return "/index";
+        return "registration";
+    }
+
+
+    @RequestMapping(value="/all-patient")
+    public String allpatient(){
+        return "all-patient";
+    }
+
+    @RequestMapping(value = "/userPage")
+    public String userPage() {
+
+        return "userPage";
     }
 
     @RequestMapping(value = "/about")

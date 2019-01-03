@@ -36,7 +36,7 @@
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
-
+<!--GÓRNY PASEK----------------------------------------------------------------------------------------------->
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="/" class="nav-link">Strona główna</a></li>
@@ -45,24 +45,9 @@
 	          <li class="nav-item"><a href="doctors" class="nav-link">Lekarze</a></li>
 	          <li class="nav-item"><a href="blog" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact" class="nav-link">Kontakt</a></li>
-	          <li class="nav-item cta"><a href="contact" class="nav-link" data-toggle="modal" data-target="#modalRequest"><span>Umów się na wizytę</span></a></li>
-            <li class="nav-item cta"><a href="#" id="loginform" class="nav-link" ><span>Zaloguj się</span></a></li>
-				<form th:action="@{/login}" method="post">
-				<div class="login">
-					<div class="arrow-up"></div>
-					<div class="formholder">
-						<div class="randompad">
-							<fieldset>
-								<label name="username">Email</label>
-								<input type="text"/>
-								<label name="password">Hasło</label>
-								<input type="password" />
-								<input type="submit" value="Zaloguj" />
-							</fieldset>
-                        </div>
-                    </div>
-                </div>
-				</form>
+				<li class="nav-item cta"><a href="/registration" class="nav-link" ><span>Zarejestruj się</span></a></li>
+            <li class="nav-item cta"><a href="/lo" class="nav-link" ><span>Zaloguj się</span></a></li>
+
 	        </ul>
 	      </div>
 	    </div>
@@ -77,7 +62,7 @@
             <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
               <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Modern Dentistry in a Calm and Relaxed Environment</h1>
               <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#" class="btn btn-primary px-4 py-3">Umów się na wizytę</a></p>
+              <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="/registration" class="btn btn-primary px-4 py-3">Umów się na wizytę</a></p>
             </div>
           </div>
         </div>
@@ -121,7 +106,7 @@
     				</p>
     			</div>
     			<div class="col-md-6 color-3 p-4">
-    				<h3 class="mb-2">Zarejestruj się</h3>
+    				<h3 class="mb-2">Zarejestruj się, aby umówić się na wizytę</h3>
     				<form action="#" th:action="@{/}" th:object="${patient}" method="post" class="appointment-form">
 	            <div class="row">
 	              <div class="col-sm-4">
@@ -139,7 +124,8 @@
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-lock"></span></div>
-			              <input type="text" class="form-control" id="appointment_email2" placeholder="Email" th:field="*{email}"/>
+			              <input type="text" class="form-control" id="appointment_email2" placeholder="Email" th:field="*{user}"/>
+                        <p th:if="${#fields.hasErrors('user')}" th:errors="*{user}">Erorr!<p/>
 			            </div>
 
 	              </div>
@@ -149,6 +135,8 @@
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-paper-plane"></span></div>
 	                  <input type="password"  class="form-control" placeholder="Hasło" th:field="*{password}"/>
+
+							<!-- 	pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Musi zawierać przynajmniej jedną cyfrę, dużą i małą literę oraz przynajmniej 8 lub więcej znaków." required -->
 	                </div>    
 	              </div>
 	              <div class="col-sm-4">
@@ -860,7 +848,9 @@
 			  </div>
             <div class="form-group" >
               <!-- <label for="appointment_email" class="text-black">Email</label> -->
-              <input type="text" class="form-control"id="appointment_email" placeholder="Email" th:field="*{email}"/>
+              <input type="text" class="form-control"id="appointment_email" placeholder="Email" th:field="*{user}"/>
+				<p th:if="${#fields.hasErrors('user')}" th:errors="*{user}"/>
+
             </div>
 			  <div class="form-group">
 				  <!-- <label for="appointment_email" class="text-black">Email</label> -->

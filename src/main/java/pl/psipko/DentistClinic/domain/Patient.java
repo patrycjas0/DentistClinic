@@ -1,8 +1,13 @@
 package pl.psipko.DentistClinic.domain;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import pl.psipko.DentistClinic.annotation.UserUnique;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.net.URL;
 import java.time.LocalDate;
 
@@ -36,24 +41,46 @@ public class Patient {
 
     private String password;
 
-    private String email;
+    @NotNull
+    @Size(min=2, max=40,message = "Za krótkie!")
+    @Column(unique = true)
+    @UserUnique(message = "Taki email już istnieje")
+    @NotEmpty(message = "Nie może być puste!")
+    private String user; //email
 
-    public Patient(String password, String email) {
-        this.password = password;
-        this.email = email;
-    }
+    private String role;
+
+    private boolean enabled;
 
 
-    public Patient(String name, String lastname, String password, String email, LocalDate birthDate, int phoneNumber) {
+    public Patient(String name, String lastname, String password, String user, LocalDate birthDate, int phoneNumber,String role, boolean enabled) {
         this.name = name;
         this.lastname = lastname;
         this.password = password;
-        this.email = email;
+        this.user = user;
         this.birthDate=birthDate;
         this.phoneNumber=phoneNumber;
+        this.role="USER";
+        this.enabled=true;
     }
 
     public Patient() {
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public int getId() {
@@ -72,12 +99,12 @@ public class Patient {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUser() {
+        return user;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getName() {

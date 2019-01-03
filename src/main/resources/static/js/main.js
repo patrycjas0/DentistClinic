@@ -5,6 +5,7 @@
 
 (function($) {
 
+
 	"use strict";
 
 	$(window).stellar({
