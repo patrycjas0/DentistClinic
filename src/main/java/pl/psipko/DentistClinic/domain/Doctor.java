@@ -13,25 +13,25 @@ public class Doctor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name, lastname;
-    private String email;
+    private String user;
     private String password;
     private boolean enabled;
     private String role;
 
-    public Doctor(String email,String password,String role,boolean enabled)
+    public Doctor(String user,String password,String role,boolean enabled)
     {
-        this.email=email;
+        this.user=user;
         this.password=password;
         this.role="ADMIN";
         this.enabled=true;
     }
 
-    public Doctor(String name, String lastname, String email, String password,String role,boolean enabled) {
+    public Doctor(String name, String lastname, String user, String password,String role,boolean enabled) {
         this.name = name;
         this.lastname = lastname;
-        this.email = email;
+        this.user = user;
         this.password = password;
-        this.role="USER2";
+        this.role="DOCTOR";
         this.enabled=true;
     }
 
@@ -71,23 +71,15 @@ public class Doctor {
     }
 
     public String getUser() {
-        return email;
+        return user;
     }
 
     public void setUser(String user) {
-        this.email = user;
+        this.user = user;
     }
 
     public String getPassword() {
         return password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public void setPassword(String password) {

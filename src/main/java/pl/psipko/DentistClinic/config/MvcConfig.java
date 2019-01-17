@@ -14,12 +14,6 @@ import java.util.concurrent.TimeUnit;
 @ComponentScan(basePackageClasses = { MvcConfig.class })
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
-//    @Override
-//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/resources/**").addResourceLocations("/", "/resources/");
-//        registry.addResourceHandler("/webapp/**").addResourceLocations("/webapp/");
-//        registry.addResourceHandler("/webjars/**").addResourceLocations("/webjars/");
-//    }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {

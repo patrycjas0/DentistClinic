@@ -18,17 +18,23 @@ public class Visit {
 
     private LocalTime time;
 
-    private String descripton;
+    private String description;
 
     @OneToOne
     private Doctor doctor;
 
+    @OneToOne
+    private Patient patient;
+
     private boolean importatnt;
 
-    public Visit(LocalDate date, LocalTime time) {
+    public Visit(LocalDate date, LocalTime time,String description,Doctor doctor, Patient patient) {
 
         this.date = date;
         this.time = time;
+        this.description=description;
+        this.doctor=doctor;
+        this.patient=patient;
     }
 
     public int getId() {
@@ -38,6 +44,14 @@ public class Visit {
 
 
     public Visit() {
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
     public Doctor getDoctor() {
@@ -73,10 +87,10 @@ public class Visit {
     }
 
     public String getDescripton() {
-        return descripton;
+        return description;
     }
 
-    public void setDescripton(String descripton) {
-        this.descripton = descripton;
+    public void setDescripton(String description) {
+        this.description = description;
     }
 }

@@ -34,10 +34,5 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 //        return manager;
 //    }
 
-//    @Override
-//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry
-//                .addResourceHandler("/resources/**")
-//                .addResourceLocations("/resources/");
-//    }
+
 }

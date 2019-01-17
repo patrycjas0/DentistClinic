@@ -1,10 +1,13 @@
 package pl.psipko.DentistClinic.service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import pl.psipko.DentistClinic.domain.Patient;
+import pl.psipko.DentistClinic.domain.UserDao;
 import pl.psipko.DentistClinic.domain.repository.PatientRepository;
-import pl.psipko.DentistClinic.domain.repository.UserDao;
+
+import javax.annotation.Resource;
 
 @Component
 public class PatientService {
@@ -22,6 +25,7 @@ public class PatientService {
 
     public Patient findByUser(String user) {
 
+
         return  userDao.findByUser(user);
     }
 
@@ -29,6 +33,7 @@ public class PatientService {
 
         patientRepository.createPatient(patient);
     }
+
 
 //    public Patient getPatient(Integer id) {
 //        return patientRepository.getPatientById(id);

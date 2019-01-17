@@ -8,11 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PagesController {
 
 
-    @RequestMapping(value = "/registration")
-    public String registration() {
-
-        return "registration";
-    }
 
 
     @RequestMapping(value="/all-patient")

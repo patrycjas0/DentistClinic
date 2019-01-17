@@ -1,24 +1,37 @@
 package pl.psipko.DentistClinic.domain.repository;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Repository;
 import pl.psipko.DentistClinic.domain.Patient;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+@Repository
+public class PatientRepository{
+
+    @PersistenceContext
+    private EntityManager em;
+
+    @Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
-public interface PatientRepository {
+    @Transactional
+    public void createPatient(Patient patient) {
+
+        String encodedPassword= bCryptPasswordEncoder.encode(patient.getPassword());
+
+        patient= new Patient(patient.getName(),patient.getLastname(),encodedPassword,patient.getUser(),
+                patient.getBirthDate(),patient.getPhoneNumber(),patient.getRole(),patient.isEnabled());
 
 
-    //void createPatient(String name, String lastname, String user, String password, LocalDate birthDate, int phoneNumber,String role);
-
-   // Collection<Patient> getAllPatient();
-
-    //void deletePatient(Integer id);
-
-    void createPatient(Patient patient);
-
-   // Patient getPatientById(Integer id);
+        em.persist(patient);
+    }
 
 
- //   default void updatePatient(int id, Patient patient) { throw new UnsupportedOperationException(); }
 }
-
 
 
