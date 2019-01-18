@@ -6,11 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import pl.psipko.DentistClinic.domain.Patient;
 import pl.psipko.DentistClinic.domain.Visit;
 import pl.psipko.DentistClinic.service.VisitService;
 
 
 import javax.validation.Valid;
+import java.awt.*;
 
 @Controller
 public class UserPageController {
@@ -30,6 +32,7 @@ public class UserPageController {
         model.addAttribute("visit",new Visit());
         return "/userpage";
     }
+
 
 //    @RequestMapping(value = "/userpage", method = RequestMethod.GET)
 //    @ResponseBody

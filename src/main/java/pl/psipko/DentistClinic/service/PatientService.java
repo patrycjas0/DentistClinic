@@ -8,6 +8,8 @@ import pl.psipko.DentistClinic.domain.UserDao;
 import pl.psipko.DentistClinic.domain.repository.PatientRepository;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class PatientService {
@@ -18,9 +20,9 @@ public class PatientService {
     @Autowired
     UserDao userDao;
 
-//    public List<Patient> getAllPatient() {
-//        return new ArrayList<>(patientRepository.getAllPatient());
-//    }
+    public List<Patient> getAllPatients() {
+        return new ArrayList<>(patientRepository.getAllPatients());
+    }
 
 
     public Patient findByUser(String user) {

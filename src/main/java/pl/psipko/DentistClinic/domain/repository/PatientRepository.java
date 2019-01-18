@@ -8,6 +8,7 @@ import pl.psipko.DentistClinic.domain.Patient;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.Collection;
 
 @Repository
 public class PatientRepository{
@@ -29,6 +30,11 @@ public class PatientRepository{
 
 
         em.persist(patient);
+    }
+
+    public Collection<Patient> getAllPatients() {
+
+        return  em.createQuery("from Patient", Patient.class).getResultList();
     }
 
 

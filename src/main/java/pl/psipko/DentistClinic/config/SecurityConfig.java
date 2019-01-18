@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     String[] recources={"/resources/**", "/registration/**","/registration/css/**","/registration/js/**","/registration/less/**","/css/**", "/fonts/**","/js/**","/login**","/login/css/**",
             "/login/fonts/**","/login/images/icons/**","/login/vendor/**","/login/css/**","/img/**",
-            "/images/**","/h2-console/**"};
+            "/images/**","/h2-console/**","/admin/**","/admin/css/**","/admin/fonts/**","/admin/img/**","/admin/js/**","/admin/pdf/**"};
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -60,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 //        auth.inMemoryAuthentication()
 //              //  .passwordEncoder(passwordEncoder())
-//                .withUser("admin").password("{noop}dupa").roles("USER", "ADMIN");
+//                .withUser("admin").password("{noop}").roles("USER", "ADMIN");
 
     }
 

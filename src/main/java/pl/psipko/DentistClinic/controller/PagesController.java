@@ -10,10 +10,6 @@ public class PagesController {
 
 
 
-    @RequestMapping(value="/all-patient")
-    public String allpatient(){
-        return "all-patient";
-    }
 
     @RequestMapping(value = "/userPage")
     public String userPage() {
