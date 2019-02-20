@@ -8,4 +8,5 @@ Application features:
 - Doctor's Account (manage all patients and visits assigned to the doctor)
 - Patient Profile (with graphic representationn of jaw for saving medical informations about each patient's tooth)
 
+
 ![alt text](https://i.ibb.co/5kcCQgN/dentacare.jpg)
